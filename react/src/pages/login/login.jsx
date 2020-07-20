@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import './login.less'
 import logo from '../../assets/img/logo512.png'
 import { Form, Icon, Input, Button, message } from 'antd';
-import { reqLogin } from '../../api'
+// import { reqLogin } from '../../api'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
 //登录的路由组件
@@ -15,7 +15,9 @@ class Login extends Component {
         this.props.form.validateFields(async (err, values) => {
             //验证成功
             if (!err) {
-                const r = await reqLogin(values);
+                // const r = await reqLogin(values);
+                const r = {}
+                r.success=true
                 if (r.success) {
                     message.success('登录成功')
                     memoryUtils.user = 'jiaozhi'  //保存在内存中

@@ -3,7 +3,7 @@ import { Table } from 'antd';
 //首页路由
 export default class User extends Component{
     componentWillMount(){
-        
+  
     }
     render(){
         const dataSource = [
