@@ -24,30 +24,37 @@ const mutations = {
 const actions = {
   // 用户登录
   login({ commit }, userInfo) {
-    const { account, password } = userInfo
+    // const { account, password } = userInfo
+
     return new Promise((resolve, reject) => {
-      login({ account: account.trim(), password: password }).then(response => {
-        const { data } = response
-        commit('setTokens', data.token)
-        setToken(data.token)
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
+      commit('setTokens', '111222')
+      setToken('111222')
+      resolve()
+      // login({ account: account.trim(), password: password }).then(response => {
+      //   const { data } = response
+      //   commit('setTokens', data.token)
+      //   setToken(data.token)
+      //   resolve()
+      // }).catch(error => {
+      //   reject(error)
+      // })
     })
   },
 
   // 第二部根据Token获取路由
   getRoute({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getRoute(state.token).then(response => {
-        const { data } = response
-        commit('setRoles', [state.token])
-        commit('setAvatar', '')
-        resolve(data)
-      }).catch(error => {
-        reject(error)
-      })
+      commit('setRoles', ['123'])
+      commit('setAvatar', '')
+      resolve('2222')
+      // getRoute(state.token).then(response => {
+      //   const { data } = response
+      //   commit('setRoles', [state.token])
+      //   commit('setAvatar', '')
+      //   resolve(data)
+      // }).catch(error => {
+      //   reject(error)
+      // })
     })
   },
 
