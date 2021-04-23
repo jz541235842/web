@@ -1,0 +1,35 @@
+.layout-header{
+    background: #000 !important;    
+    height: 60px !important;
+    padding: 0 !important;
+    color: #fff !important;
+    line-height: normal !important;
+    .Logo{
+        padding-left: 20px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tips{
+        height: 60px;
+        width: 100px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .layout-right{
+        display: flex;
+        justify-content:  flex-end;
+        align-items:center;
+        padding-right: 20px;
+        cursor: pointer;
+        span{
+            margin-right: 10px;
+        }
+    }
+}
+
+.layout-content{
+    height: calc(100vh - 60px);
+}

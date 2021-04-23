@@ -39,7 +39,7 @@ const actions = {
       //   reject(error)
       // })
     })
-  },
+  }, 
 
   // 第二部根据Token获取路由
   getRoute({ commit, state }) {
