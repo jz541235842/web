@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
+// import Particles from 'react-particles-js';
 import { Form, Icon, Input, Button } from 'antd';
 import { connect } from 'react-redux';
 import { setUserInfo } from '@/store/actions/userInfo';
@@ -44,7 +44,7 @@ class Login extends Component {
 		const { getFieldDecorator } = this.props.form;
 		return (
 			<div className="container">
-				<Particles
+				{/* <Particles
 					height={this.state.clientHeight - 5 + 'px'}
 					params={{
 						number: { value: 50 },
@@ -55,7 +55,7 @@ class Login extends Component {
 							}
 						}
 					}}
-				/>
+				/> */}
 				<div className="content">
 					<div className="title">后台管理系统</div>
 					<Form className="login-form">
