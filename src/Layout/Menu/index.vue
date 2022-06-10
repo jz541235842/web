@@ -13,6 +13,7 @@ import { useRoute } from 'vue-router';
 import { useStore } from '@/store';
 const store = useStore();
 const route = useRoute();
+const a = 123;
 const activeIndex = computed(() => {
     const { path } = route;
     // console.log(88, route, path)
