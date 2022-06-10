@@ -1,0 +1,136 @@
+<html> 
+	<head>  
+		<meta charset="utf-8">
+		<title>Document</title>
+	</head> 
+	<style type="text/css">
+		.div {
+			/* display: none; // DOM元素直接不渲染，在文档流不占位置 */
+			visibility: hidden; // DOM元素仍渲染，在文档流占位置，但不可见，不可触发事件 
+			/* opacity: 0; // DOM元素仍渲染，在文档流占位置，但不可见，可点击，可触发事件 */
+			/* transform: tranlateX('500px'); // DOM元素仍渲染，在文档流占位置,只是移出了可见范围 */
+		}
+	</style>
+	<body> 
+		<div class="div">
+			1234561
+		</div>
+		<div>
+			456789
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 	let json={
+		// 		name:"",
+		// 		lovely:"    ",
+		// 		page:1,
+		// 		pageSize:10
+		// 	}
+		//1.最常见的判断方法  typeof
+		//2.判断已知对象类型的方法： instanceof
+		//3.根据对象的constructor判断： constructor
+		//4.通用但很繁琐的方法： prototype
+		//5.无敌万能的方法：jquery.type()
+		//for  in  和  for  of的区别
+		//for in 取 key； for of 取 value
+		//for of 只能用于数组遍历，for in还可以用于对象属性的遍历
+		// 	console.log("%c 董衍斌!","font-size:50px;color:red;text-fill-color:#ff3c00;-webkit-text-stroke: 1px black;")
+		// 	for (var key in json ){
+		// 		if(typeof json[key]=='string'){
+		// 			if(json[key].trim()==''){
+		// 				json[key]=null
+		// 			}
+		// 		}
+		// 	}
+		// 	console.log(json)
+		// 		var  xmlHttp;
+		// 		if (window.XMLHttpRequest) { //检查浏览器的XMLHttpRequest属性，如果为真则支持XMLHttpRequest
+		// 			// IE7+, Firefox, Chrome, Opera, Safari 浏览器支持XMLHttpRequest 
+		// 			xmlHttp = new XMLHttpRequest();
+		// 		} else {
+		// 			// IE6, IE5 浏览器使用ActiveXObject
+		// 			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		// 		}
+		// 		let url = "https://web.woodana.com:10088/authAdmin/passwordLogin"
+		// 		xmlHttp.open("post", url);
+		// 		xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8"); //用post方法的话，一定要加这句设置请求头的contentType属性
+		// 		xmlHttp.onreadystatechange = callback;
+		// 		var json={
+		// 			account:'jiaozhi',
+		// 			password:'jz54321'
+		// 		}
+		// 		xmlHttp.send(JSON.stringify(json)); //在send方法中传递参数。
+		// 		function callback(e){
+		// 			console.log(e.currentTarget)
+		// 			console.log(e.currentTarget.response)
+		// 		}
+		//（原生js实现Ajax）实例1：
+		//Ajax封装函数
+		function Ajax(type, url, data, success, failed) {
+			// 创建ajax对象
+			var xhr = null;
+			if (window.XMLHttpRequest) { //非IE浏览器
+				xhr = new XMLHttpRequest();
+			} else { //IE浏览器
+				xhr = new ActiveXObject('Microsoft.XMLHTTP')
+			}
+
+			// 用于清除缓存
+			var random = Math.random();
+
+			if (typeof data == 'object') {
+				var str = '';
+				for (var key in data) {
+					str += key + '=' + data[key] + '&';
+				}
+				data = str.replace(/&$/, '');
+			}
+
+			if (type.toUpperCase() == 'GET') {
+				if (data) {
+					xhr.open('GET', url + '?' + data, true);
+				} else {
+					xhr.open('GET', url + '?t=' + random, true);
+				}
+				xhr.send();
+
+			} else if (type.toUpperCase() == 'POST') {
+				xhr.open('POST', url, true);
+				// 如果需要像 html 表单那样 POST 数据，请使用 setRequestHeader() 来添加 http 头。
+				xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+				xhr.send(data);
+			}
+
+			// 处理返回数据
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					/*
+					 ** Http状态码
+					 ** 1xx ：信息展示
+					 ** 2xx ：成功
+					 ** 3xx ：重定向
+					 ** 4xx : 客户端错误
+					 ** 5xx ：服务器端错误
+					 */
+					if (xhr.status == 200) {
+						success(xhr.responseText);
+					} else {
+						if (failed) {
+							failed(xhr.status);
+						}
+					}
+				}
+			}
+		}
+		// 测试调用
+		var json = {
+			account: 'jiaozhi',
+			password: 'jz54321'
+		}
+		Ajax('post', 'https://web.woodana.com:10088/authAdmin/passwordLogin', JSON.stringify(json), function(data) {
+			console.log(JSON.parse(data));
+		}, function(error) {
+			console.log(error);
+		});
+	</script>
+</html>

@@ -1,0 +1,22 @@
+.home-container{
+    height: calc(100vh - 60px) !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    .home-container-item{
+        height: 40%;
+        width: 80%;
+        position: relative;
+        color: #fff;
+        h1{
+            color: #fff;
+            font-size: 40px;
+        }
+        .icon-item{
+            position: absolute;
+            bottom: 0;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    }
+} 
