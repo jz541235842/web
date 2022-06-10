@@ -33,3 +33,4 @@ pnpm  add cz-customizable@6.3.0  --D
         {  value: 'revert', name: 'revert:   回退' },
         {  value: 'build',   name: 'build:    打包' }
     ],
+3.使用

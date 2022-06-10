@@ -48,8 +48,7 @@ const addTab = () => {
     // 2.通过vuex设置
     const tab: ITab = {
         title: meta.title as string,
-        path: path,
-        kk: 22
+        path: path
     };
     store.commit('setTab', tab);
 };
