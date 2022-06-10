@@ -1,0 +1,28 @@
+{
+  "name": "vueadmin",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.41",
+    "element-plus": "^2.2.4",
+    "eslint": "^8.17.0",
+    "eslint-plugin-vue": "^9.1.0",
+    "sass": "^1.52.2",
+    "sass-loader": "^13.0.0",
+    "vue": "^3.2.25",
+    "vue-router": "4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@element-plus/icons-vue": "^2.0.4",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.35.0"
+  }
+}
