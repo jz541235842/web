@@ -1,8 +1,8 @@
 <template>
-<Collapse/>
-<BredCum/>
+    <Collapse />
+    <BredCum />
 </template>
 <script lang="ts" setup>
 import Collapse from './Collapse.vue';
-import BredCum from './BredCum.vue'
+import BredCum from './BredCum.vue';
 </script>

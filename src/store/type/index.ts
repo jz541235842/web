@@ -1,4 +1,4 @@
-export interface ITab{
-  title:string,
-  path:string
+export interface ITab {
+    title: string;
+    path: string;
 }

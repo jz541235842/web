@@ -1,3 +1,1 @@
-<template>
-用户管理
-</template>
+<template>用户管理</template>
